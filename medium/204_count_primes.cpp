@@ -1,27 +1,36 @@
 using namespace std;
 #include <iostream>
-#include <cstring>
+#include <vector>
 
 int countPrimes(int n) {
-        if (n < 3) {
-            return 0;
-        }
-        bool isprime[n];
 
-        memset(isprime, true, n);
+    vector<bool> is_prime(n+1, true);
+    is_prime[0] = is_prime[1] = false;
 
-        int result = n / 2;
-        for (int i = 3; i * i < n; i += 2) {
-            if (isprime[i]) {
-                int d = i * 2;
-                for (int j = i * i; j < n; j += d) {
-                    if (isprime[j]) {
-                        isprime[j] = false;
-                        result--;
-                    }
-                }
-            }
+    for (int i = 2; i < n; i++) {
+        if (is_prime[i] && (long long)i * i < n) {
+            for (int j = i * i; j < n; j += i)
+                is_prime[j] = false;
         }
-        return result;
     }
 
+    // Count the number of primes
+    int prime_count = 0;
+    for (int i = 2; i < n; i += 1) {
+        if (is_prime[i]) {
+            prime_count++;
+        }
+    }
+    return prime_count; // Return the count of prime numbers
+}
+
+int main() {
+    int a;
+    cout << "Enter the upper limit (n): ";
+    cin >> a;
+
+    int prime_count = countPrimes(a);
+    cout << "Number of prime numbers up to " << a << ": " << prime_count << endl;
+
+    return 0;
+}
