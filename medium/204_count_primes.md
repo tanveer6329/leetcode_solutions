@@ -15,5 +15,12 @@ To find all the prime numbers less than or equal to a given integer n by Eratost
 - Another refinement is to initially list odd numbers only, (3, 5, ..., n), and count in increments of 2p in step 3, thus marking only odd multiples of p. This actually appears in the original algorithm.This can be generalized with wheel factorization, forming the initial list only from numbers coprime with the first few primes and not just from odds (i.e., numbers coprime with 2), and counting in the correspondingly adjusted increments so that only such multiples of p are generated that are coprime with those small primes, in the first place.
 
 
+### time: O(nlog(log(n))) 
+### space: O(n)
+
+
 for more info check:
-[Wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+[Wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), 
+[Algorithms_for_cp](https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html)
+
+
