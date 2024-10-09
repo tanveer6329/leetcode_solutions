@@ -14,6 +14,7 @@ int countPrimes(int n) {
         }
     }
 
+
     // Count the number of primes
     int prime_count = 0;
     for (int i = 2; i < n; i += 1) {
